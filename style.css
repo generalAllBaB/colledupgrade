@@ -1,0 +1,99 @@
+body {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 200;
+    color: hsl(210, 100%, 100%);
+    background: #000 url(body.png);
+    background-size: cover;
+}
+
+#main {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    width: calc(100% - 50px);
+    margin: 4px auto;
+    font-size: 99px;
+    color: #002bffeb;
+}
+
+button {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border: 0;
+    border-radius: 5px;
+    margin-top: 50px;
+    height: 313px;
+    width: calc(100% - 50px);
+    font-size: 65px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 500ms ease;
+    background: hsla(240, 87%, 21%, 0.173);
+    text-align: left;
+    padding-left: 20px; /* Добавляем отступ слева */
+}
+
+.blue-text {
+    color: #0075ff; /* Цвет для верхней части */
+}
+
+.white-text {
+    color: #ffffff; /* Цвет для нижней части */
+    font-size: 30px;
+}
+
+button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1%;
+    background: #162b93d3;  /* Цвет верхней грани */
+}
+
+button:hover {
+    background: hsla(240, 87%, 21%, 0.126);
+}
+
+.blue-text:hover {
+    color: #0077ff58;
+}
+
+.white-text:hover {
+    color: #ffffff7a;
+}
+
+button:hover::before {
+    background: #162b932e;  /* Цвет верхней грани при наведении */
+}
+
+
+
+
+
+/* @media screen and (max-width: 2570px) {}
+
+@media screen and (max-width: 2210px) {}
+
+@media screen and (max-width: 2010px) {}
+
+@media screen and (max-width: 1810px) {}
+
+@media screen and (max-width: 1610px) {}
+
+@media screen and (max-width: 1450px) {}
+
+@media screen and (max-width: 1210px) {}
+
+@media screen and (max-width: 1034px) {}
+
+@media screen and (max-width: 780px) {}
+
+@media screen and (max-width: 510px) {}
+
+@media screen and (max-width: 435px) {} */
