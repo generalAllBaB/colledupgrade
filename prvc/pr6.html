@@ -1,0 +1,144 @@
+<html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Пр.ВС</title>
+</head>
+<body bgcolor="#000" background="../body.png">
+    <script>
+        function exit() {
+            window.location.href = "prvc.html";
+        }
+    </script>
+    <div id="main">
+        <p class="exit" onclick="exit()">Назад</p>
+        <h1>Практическая работа №6</h1><br><br>
+    </div>
+    <p  class="p">&#160;&#160;&#160;&#160;Базовые понятия языка Си</p><br><br>
+    <p  class="p">&#160;&#160;&#160;&#160;Цель занятия: изучить основные базовые понятия языка Си; на основе простых задач закрепить знания о структуре и этапах выполнения программы на языке Си.</p><br>
+    <p  class="p">&#160;&#160;&#160;&#160;Задача 1</p><br>
+    <p  class="p">&#160;&#160;&#160;&#160;Фрагмент кода:</p><br>
+    <pre><code class="p">
+    #include&lt;stdio.h&gt;
+    #include&lt;conio.h&gt;
+    #include&lt;math.h&gt;
+        
+    int main ()
+    {
+    float pi=3.141593;
+    //задаем радиусы
+    float R_sph=2,R_cyl=2,R_con=2;
+    float H_cyl=5,H_con=5; 
+    //задаем высоты 
+    float L_con; 
+    float S_sph,S_cyl,S_con; 
+    float V_sph, V_cyl, V_con;
+        
+    // Вычисляем параметры сферы 
+    S_sph = 4*pi*R_sph*R_sph; 
+    V_sph = 4./3*pi*pow(R_sph,3); 
+    printf("Sphera: s=%f  v=%f\n",S_sph,V_sph); //печать на экран
+        
+    // Вычисляем параметры цилиндра 
+    S_cyl = 2*pi*R_cyl*(H_cyl+R_cyl); 
+    V_cyl = pi*R_cyl*R_cyl*H_cyl;
+    printf("Cylinder:s=%f v=%f\n", S_cyl,V_cyl); //печать на экран
+        
+    // Вычисляем параметры конуса 
+    L_con = hypot(H_con,R_con); 
+    S_con = pi*R_con*(L_con+R_con); 
+    V_con = 1./3*pi*R_con*R_con*H_con; 
+    printf("Cone: s=%f v=%f\n",S_con,V_con); //печать на экран 
+        
+    getch(); 
+    return 0;
+    }
+    </code></pre><br>
+    <p  class="p">&#160;&#160;&#160;&#160;Ответ:</p><br><br>
+    <p  class="p">&#160;&#160;&#160;&#160;Sphera: s=50.265488  v=33.510326</p><br>
+    <p  class="p">&#160;&#160;&#160;&#160;Cylinder: s=87.964600 v=62.831860</p><br>
+    <p  class="p">&#160;&#160;&#160;&#160;Cone: s=46.402363 v=20.943953</p><br><br><br>
+    <p  class="p">&#160;&#160;&#160;&#160;Задача 2</p><br>
+    <p  class="p">&#160;&#160;&#160;&#160;Фрагмент кода:</p><br>
+    <pre><code class="p">
+    #include&lt;stdio.h&gt;
+    #include&lt;conio.h&gt;
+    #include&lt;math.h&gt;
+        
+    int main()
+    {
+    int x1,y1,x2,y2,x3,y3;
+    float a,b,c,S,p;
+        
+    // Задание координат вершин 
+    x1=0;	y1=0;
+    x2=4;	y2=0;
+    x3=0;	y3=3;
+        
+    // Вычисление сторон треугольника по формуле Пифагора
+    a=hypot(x2-x1,y2-y1); 	//х2-х1 и у2-у1 – длины катетов
+    b=hypot(x3-x2,y3-y2) ; 	//хЗ-х2 и у3-у2 – длины катетов
+    c=hypot(x1-x3,y1-y3); 	//x1-х3 и y1-у3 – длины катетов
+        
+    // Вычисление площади треугольника по формуле Герона 
+    p=(a+b+c)/2;
+    S=sqrt (p*(p-a) * (p-b) * (p-c)) ;
+        
+    printf("%f",S); //вывод результата на экран 
+    getch();
+    return 0;
+    } 
+    </code></pre><br>
+    <p  class="p">&#160;&#160;&#160;&#160;Ответ: 6.000000</p><br><br><br>
+    <p  class="p">&#160;&#160;&#160;&#160;Задача 3. Написать программу для вычисления объема и площади поверхности кольца. Размеры кольца задать самостоятельно.</p><br>
+    <p  class="p">&#160;&#160;&#160;&#160;Фрагмент кода:</p><br>
+    <pre><code class="p">
+    #include&lt;stdio.h&gt;
+
+    #define PI 3.14159
+        
+    int main() {
+    // Размеры кольца (радиус внешнего и внутреннего кругов)
+    double outer_radius = 5.0; // Радиус внешнего круга
+    double inner_radius = 3.0; // Радиус внутреннего круга
+        
+    // Вычисление площади поверхности кольца
+    double area = PI * (outer_radius * outer_radius - inner_radius * inner_radius);
+        
+    // Вычисление объема кольца
+    double volume = PI * (outer_radius * outer_radius - inner_radius * inner_radius) * 1; // Толщина кольца задаем как 1 
+        
+    // Вывод результатов
+    printf("Площадь поверхности кольца: %.2f\n", area);
+    printf("Объем кольца: %.2f\n", volume);
+        
+    return 0;
+    }
+    </code></pre><br>
+    <p  class="p">&#160;&#160;&#160;&#160;Ответ:</p><br><br>
+    <p  class="p">&#160;&#160;&#160;&#160;Площадь поверхности кольца: 50.27</p><br>
+    <p  class="p">&#160;&#160;&#160;&#160;Объем кольца: 100.53</p><br><br>
+    <p  class="p">&#160;&#160;&#160;&#160;Задача 4. Написать программу для вычисления значения функции z = x3 – 2,5ху + 1,78 x2 – 2,5у + 1 при любых значениях х и у. </p><br>
+    <p  class="p">&#160;&#160;&#160;&#160;Фрагмент кода:</p><br>
+    <pre><code class="p">
+        #include&lt;stdio.h&gt;
+    
+        int main() {
+            // Заданные значения для x и y
+            double x = 2.0;
+            double y = 3.0;
+            
+            // Вычисление значения функции z = x^3 - 2.5*x*y + 1.78*x^2 - 2.5*y + 1
+            double z = x * x * x - 2.5 * x * y + 1.78 * x * x - 2.5 * y + 1;
+            
+            // Вывод результата
+            printf("Значение функции z при x = %.2f и y = %.2f равно %.2f\n", x, y, z);
+            
+            return 0;
+        }     
+    </code></pre><br>
+    <p  class="p">&#160;&#160;&#160;&#160;Ответ: Значение функции z при x = 2.00 и y = 3.00 равно -6.38</p><br><br>
+</body>
+</html>
+
